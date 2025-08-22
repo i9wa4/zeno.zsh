@@ -6,7 +6,7 @@ local -a out
 
 out=( "${(f)$(zeno-call-client-and-fallback --zeno-mode=auto-snippet \
   --input.lbuffer="$LBUFFER" \
-  --input.rbuffer="$RBUFFER" \
+  --input.rbuffer="$RBUFFER" 2>&1 \
   )}" )
 
 if [[ $ZENO_ENABLE -eq 1 && $out[1] == success && -n $out[2] ]]; then
